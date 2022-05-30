@@ -8,3 +8,8 @@ html,body{
     height: 100%;
     background-color: tomato;
 }
+
+.div-background{
+    background-color: rgba(0, 0, 0, 0.09);
+    border-radius: 16px;
+}

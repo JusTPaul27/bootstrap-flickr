@@ -23,8 +23,8 @@ function createCarouselCards(result) {
 
     const template = ` 
      <img src="#URL"  class="centered d-block w-100" alt="#ALT">
-    <div class="carousel-caption d-none d-md-block">
-      <h5>#TITLE</h5>
+    <div class="carousel-caption d-none d-md-block ">
+      <h5 class = 'div-background' >#TITLE</h5>
 
     </div>
   </div>
@@ -51,6 +51,19 @@ function createCarouselCards(result) {
 
         container.appendChild(div);
     }
+}
+
+
+function search() {
+    const input = document.getElementById('search-input');
+    const searchWords = input.value.trim();
+    const tags = searchWords.replaceAll(' ', ',');
+    const tagsUrl = BASE_URL + '&tags=' + tags;
+
+    fetch(tagsUrl)
+    .then(resp => resp.text())
+    .then(result => createCarouselCards(result))
+    .catch(error => console.log(error));
 }
 
 initFlickr();
